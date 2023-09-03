@@ -1,0 +1,1 @@
+var baseUrl = 'https://ahmadiyyafactcheckblog.com';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class ScreenPostDetails extends StatelessWidget {
   String title;
@@ -7,11 +7,15 @@ class ScreenPostDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var htmlString = (post['content']['rendered']).toString();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Html(data: (post['content']['rendered']).toString()),
+      body: WebViewWidget(
+        controller: WebViewController()..loadHtmlString(htmlString),
+      ),
     );
   }
 
